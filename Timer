@@ -1,0 +1,20 @@
+def countdown(c):
+  timer=CountdownTimer(60)
+  timer.start()
+  while not timer.is_finished():
+    time_left=timer.get_time_left()
+    print(f"Time left:{time_left:.1f}seconds")
+    time.sleep(0.5)
+    if time<=30 and not timer.paused:
+      print("Pausing timer...")
+      timer.pause()
+      if time<=20 and timer.paused:
+        print("Resuming timer...")
+        timer.resume()
+        if time_left<=5:
+          print("Stopping timer...")
+          timer.stop()
+          if time_left<=10:
+            print("Resetting timer...")
+            timer.reset()
+print("Timer finished!")            
